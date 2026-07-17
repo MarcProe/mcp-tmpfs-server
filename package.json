@@ -10,7 +10,9 @@
     "index.js"
   ],
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "lint": "npx eslint .",
+    "prepare": "npx husky install"
   },
   "engines": {
     "node": ">=18"

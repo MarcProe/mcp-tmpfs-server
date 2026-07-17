@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# Run linting on pre-commit using npx to resolve from dev-package
+npx eslint .
