@@ -1,3 +1,0 @@
-# Ignore development dependencies for socket.dev
-eslint
-husky
