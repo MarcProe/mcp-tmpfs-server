@@ -353,24 +353,24 @@ async function runTests() {
 
   // --- unzip_file tests ---
 
+  // Helper to write little-endian uint16
+  const writeUint16 = (buf, offset, value) => {
+    buf[offset] = value & 0xFF;
+    buf[offset + 1] = (value >> 8) & 0xFF;
+  };
+  
+  // Helper to write little-endian uint32
+  const writeUint32 = (buf, offset, value) => {
+    buf[offset] = value & 0xFF;
+    buf[offset + 1] = (value >> 8) & 0xFF;
+    buf[offset + 2] = (value >> 16) & 0xFF;
+    buf[offset + 3] = (value >> 24) & 0xFF;
+  };
+
   // Helper to create a valid ZIP file buffer
-  function createZipBuffer(fileName, fileContent) {
+  const createZipBuffer = (fileName, fileContent) => {
     const fileNameBytes = Buffer.from(fileName);
     const fileContentBytes = Buffer.from(fileContent);
-    
-    // Helper to write little-endian uint16
-    function writeUint16(buf, offset, value) {
-      buf[offset] = value & 0xFF;
-      buf[offset + 1] = (value >> 8) & 0xFF;
-    }
-    
-    // Helper to write little-endian uint32
-    function writeUint32(buf, offset, value) {
-      buf[offset] = value & 0xFF;
-      buf[offset + 1] = (value >> 8) & 0xFF;
-      buf[offset + 2] = (value >> 16) & 0xFF;
-      buf[offset + 3] = (value >> 24) & 0xFF;
-    }
     
     // Local File Header
     const lfh = Buffer.alloc(30 + fileNameBytes.length);

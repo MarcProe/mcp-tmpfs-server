@@ -18,7 +18,6 @@ const { promisify } = require("node:util");
 
 const gunzip = promisify(zlib.gunzip);
 const inflate = promisify(zlib.inflate);
-const brotliDecompress = promisify(zlib.brotliDecompress);
 
 // ---- configuration -------------------------------------------------------
 
@@ -446,7 +445,7 @@ async function extractZip(zipBuf, targetDir) {
     try {
       decompressedData = await decompressData(compressedData, lfh.compressionMethod);
     } catch (err) {
-      console.warn(`Failed to decompress ${entry.fileName}: ${err.message}`);
+      // Failed to decompress - skip this file
       continue;
     }
     
@@ -741,7 +740,6 @@ async function handleRequest(msg) {
 
 async function main() {
   await fs.mkdir(ROOT_DIR, { recursive: true });
-  console.error(`mcp-tmpfs-server running. Sandbox root: ${ROOT_DIR}`);
 
   // Process requests one at a time, in the order they arrive, so that
   // e.g. a write_file is fully done before the next request (like a
