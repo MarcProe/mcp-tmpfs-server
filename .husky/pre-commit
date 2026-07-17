@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
-# Run linting on pre-commit using direct path to dev-package
-./dev-package/node_modules/.bin/eslint .
+npm run lint

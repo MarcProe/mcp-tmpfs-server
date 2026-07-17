@@ -11,10 +11,14 @@
   ],
   "scripts": {
     "test": "node test.js",
-    "lint": "./dev-package/node_modules/.bin/eslint .",
-    "prepare": "./dev-package/node_modules/.bin/husky install"
+    "lint": "eslint .",
+    "prepare": "husky install"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "husky": "^9.0.11"
   }
 }
