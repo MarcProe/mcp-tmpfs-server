@@ -1,0 +1,10 @@
+{
+  "name": "mcp-tmpfs-server-dev",
+  "version": "1.0.0",
+  "description": "Development dependencies for mcp-tmpfs-server",
+  "private": true,
+  "dependencies": {
+    "eslint": "^8.56.0",
+    "husky": "^9.0.11"
+  }
+}
