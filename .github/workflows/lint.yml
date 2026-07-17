@@ -18,11 +18,11 @@ jobs:
           node-version: '20'
           cache: 'npm'
       
-      - name: Install dev dependencies
+      - name: Install dependencies
         run: npm install
       
       - name: Install dev-package dependencies
         run: cd dev-package && npm install
       
       - name: Run linter
-        run: npx eslint .
+        run: ./dev-package/node_modules/.bin/eslint .

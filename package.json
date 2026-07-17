@@ -11,8 +11,8 @@
   ],
   "scripts": {
     "test": "node test.js",
-    "lint": "npx eslint .",
-    "prepare": "npx husky install"
+    "lint": "./dev-package/node_modules/.bin/eslint .",
+    "prepare": "./dev-package/node_modules/.bin/husky install"
   },
   "engines": {
     "node": ">=18"

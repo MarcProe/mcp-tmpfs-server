@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-# Run linting on pre-commit using npx to resolve from dev-package
-npx eslint .
+# Run linting on pre-commit using direct path to dev-package
+./dev-package/node_modules/.bin/eslint .
